@@ -1,0 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package crud;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Cvijetin
+ */
+public class Read{
+     
+   Read() {
+         Scanner ulaz = new Scanner(System.in);
+          System.out.println("Odabrali ste opciju za prikaz podataka");
+       System.out.println("------------------------------------------");
+           String READ_MENU;
+         System.out.println("Što želite od podataka prikazati?");
+          System.out.println("Ukoliko želite prikaz Autora unesite broj 1");
+           System.out.println("Ukoliko želite prikaz Kategorija unesite broj 2");
+            System.out.println("Ukoliko želite prikaz Vijesti unesite broj 3");
+            
+        READ_MENU = ulaz.next();
+         switch (READ_MENU) {
+            case "1":
+ System.out.println("Autori: " + a.getIme() + a.getPrezime());
+              
+                break;
+}
+     }
+     private static String ucitajTest(Scanner ulaz){
+        String s;
+        do{
+            s=ulaz.nextLine();
+            if(s.trim().length()==0){
+                System.out.println("Obavezan unos");
+                continue;
+               
+            } return s;
+        }while(true);
+       
+        
+    }
+
+  
+         
+
+}
+
