@@ -1,0 +1,86 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package crud;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Cvijetin
+ */
+public class Create {
+   
+
+    Create() {
+        Scanner ulaz = new Scanner(System.in);
+        System.out.println("Odabrali ste unos podataka ");
+         List<Vijesti> vijesti = new ArrayList<>();
+         Vijesti v;
+        Kategorija k;
+        Autor a;
+         for (;;){
+            v = new Vijesti();
+            System.out.println("Unesite novu vijest");
+            System.out.println("Unesite naslov vijesti");
+            v.setNaslov(ucitajTest(ulaz));
+            System.out.println("Unesite sadržaj vijesti");
+            v.setSadrzaj(ucitajTest(ulaz));
+            
+            v.setKategorija(new ArrayList<>());           
+            while (true){
+                System.out.println("Unos kategorije");
+                k = new Kategorija();
+                System.out.println("Unesi naziv kategorije");
+                k.setNaziv(ucitajTest(ulaz));              
+                v.getKategorija().add(k);
+                System.out.println("Za prekid unosa kategorija unesite ne");
+                if (ulaz.nextLine().equalsIgnoreCase("Ne")) {
+                    break;
+                } 
+                vijesti.add(v);
+            }
+            v.setAutor(new ArrayList<>());
+            while (true){
+            a = new Autor();
+            System.out.println("Unesite ime autora");
+            a.setIme(ucitajTest(ulaz));
+            System.out.println("Unesite prezime autora");
+            a.setPrezime(ucitajTest(ulaz));
+            System.out.println("Unesite OIB autora");
+            a.setOib(ucitajTest(ulaz));
+            v.getAutor().add(a);
+            System.out.println("Za prekid unosa autora unesite ne");
+                if (ulaz.nextLine().equalsIgnoreCase("Ne")) {
+                    break;
+                }vijesti.add(v);
+            }
+            
+            System.out.println("Za prekid unosa vijesti unesite ne");
+            if (ulaz.nextLine().equalsIgnoreCase("Ne")) {
+                break;
+            }
+            
+        } Start.DisplayMenu();  
+       
+        
+    
+}
+    private static String ucitajTest(Scanner ulaz){
+        String s;
+        do{
+            s=ulaz.nextLine();
+            if(s.trim().length()==0){
+                System.out.println("Obavezan unos");
+                continue;
+               
+            } return s;
+        }while(true);
+       
+        
+    }
+}
